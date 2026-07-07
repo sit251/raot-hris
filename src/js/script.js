@@ -1,4 +1,7 @@
-function render(html) {
+import { showSplash } from "./splash.js";
+import { login } from "./login.js";
+
+export function render(html) {
     document.getElementById("app").innerHTML = html;
 }
 
@@ -29,13 +32,20 @@ function showLogin() {
                 placeholder="รหัสผ่าน"
                 class="textbox">
 
-            <button class="login-btn">
+            <button id="loginBtn" class="login-btn">
                 เข้าสู่ระบบ
             </button>
+
+            <div id="message"></div>
 
         </div>
     `);
 
+    document
+        .getElementById("loginBtn")
+        .addEventListener("click", login);
 }
 
-window.onload = showLogin;
+showSplash(showLogin);
+
+export { showLogin };
