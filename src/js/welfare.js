@@ -1,66 +1,119 @@
 import { render } from "./script.js";
 import { showDashboard } from "./dashboard.js";
-
+import { welfareFAQ } from "./data.js";
 export function showWelfare(){
 
 render(`
 
 <div class="login-box">
 
-<h2 style="color:#006633;">❤️ สวัสดิการสงเคราะห์</h2>
+<h2 style="color:#006633;">
+<i class="bi bi-heart-pulse-fill"></i>
+สวัสดิการสงเคราะห์
+</h2>
 
 <p class="subtitle">
-
-เลือกหมวดข้อมูลที่ต้องการค้นหา
-
+บริการข้อมูลสวัสดิการและสิทธิประโยชน์<br>
+เลือกเมนูที่ต้องการใช้งาน
 </p>
 
+<div class="section-title">
+เมนูบริการ
+</div>
+
+<div class="menu-card" id="hospitalBtn">
+
+<div class="menu-icon">
+<i class="bi bi-hospital-fill"></i>
+</div>
+
+<div>
+
+<div class="menu-title">
+สถานพยาบาล
+</div>
+
+<div class="menu-desc">
+ข้อมูลสถานพยาบาลและสิทธิการรักษา
+</div>
+
+</div>
+
+</div>
+
+<div class="menu-card" id="familyBtn">
+
+<div class="menu-icon">
+<i class="bi bi-people-fill"></i>
+</div>
+
+<div>
+
+<div class="menu-title">
+สวัสดิการครอบครัว
+</div>
+
+<div class="menu-desc">
+สิทธิประโยชน์สำหรับบุตรและครอบครัว
+</div>
+
+</div>
+
+</div>
+
+<div class="menu-card" id="funeralBtn">
+
+<div class="menu-icon">
+<i class="bi bi-flower1"></i>
+</div>
+
+<div>
+
+<div class="menu-title">
+เงินช่วยเหลือกรณีเสียชีวิต
+</div>
+
+<div class="menu-desc">
+ค่าทำศพและสิทธิประโยชน์ที่เกี่ยวข้อง
+</div>
+
+</div>
+
+</div>
+
+<div class="menu-card" id="faqBtn">
+
+<div class="menu-icon">
+<i class="bi bi-patch-question-fill"></i>
+</div>
+
+<div>
+
+<div class="menu-title">
+คำถามทั่วไป
+</div>
+
+<div class="menu-desc">
+รวมคำถามที่พบบ่อยเกี่ยวกับสวัสดิการ
+</div>
+
+</div>
+
+</div>
+
 <button
-    class="login-btn"
-    id="hospitalBtn">
-
-🏥 สถานพยาบาล
-
-</button>
-
-<br><br>
-
-<button
-class="login-btn"
-id="familyBtn">
-
-👨‍👩‍👧 สวัสดิการครอบครัว
-
-</button>
-
-<br><br>
-
-<button
-class="login-btn"
-id="funeralBtn">
-
-🕊️ เงินช่วยเหลือกรณีเสียชีวิต
-
-</button>
-
-<br><br>
-
-<button
-class="login-btn"
-id="faqBtn">
-
-❓ คำถามทั่วไป
-
-</button>
-
-<br><br>
-
-<button
-class="login-btn"
-style="background:#777;"
+class="login-btn welfare-btn"
 id="backBtn">
 
-🔙 กลับหน้าหลัก
+<span>
+
+<i class="bi bi-house-door-fill"></i>
+
+กลับสู่หน้าหลัก
+
+</span>
+
+<i class="bi bi-chevron-right"></i>
 
 </button>
 
@@ -68,25 +121,11 @@ id="backBtn">
 
 `);
 
-document
-    .getElementById("hospitalBtn")
-    .addEventListener("click", showHospital);
-
-document
-.getElementById("familyBtn")
-.addEventListener("click", showFamily);
-
-document
-.getElementById("funeralBtn")
-.addEventListener("click", showFuneral);
-
-document
-.getElementById("faqBtn")
-.addEventListener("click", showFAQ);
-
-document
-.getElementById("backBtn")
-.addEventListener("click", () => showDashboard(window.currentUser));
+document.getElementById("hospitalBtn").addEventListener("click", showHospital);
+document.getElementById("familyBtn").addEventListener("click", showFamily);
+document.getElementById("funeralBtn").addEventListener("click", showFuneral);
+document.getElementById("faqBtn").addEventListener("click", showFAQ);
+document.getElementById("backBtn").addEventListener("click", () => showDashboard(window.currentUser));
 
 }
 
@@ -96,7 +135,10 @@ render(`
 
 <div class="login-box">
 
-<h2>🏥 สถานพยาบาล</h2>
+<h2 style="color:#006633;">
+<i class="bi bi-hospital-fill"></i>
+สถานพยาบาล
+</h2>
 
 <p class="subtitle">
 ตรวจสอบรายชื่อสถานพยาบาลและข้อมูลการใช้สิทธิรักษาพยาบาล
@@ -105,12 +147,16 @@ render(`
 <div class="faq-card">
 
 <div class="question">
-🏛️ สถานพยาบาลของทางราชการ
+
+<i class="bi bi-building"></i>
+
+สถานพยาบาลของทางราชการ
+
 </div>
 
 <div class="answer">
 
-สามารถตรวจสอบรายชื่อสถานพยาบาลของทางราชการได้จากเอกสารด้านล่าง
+สามารถตรวจสอบรายชื่อสถานพยาบาลของทางราชการได้
 
 <br><br>
 
@@ -118,7 +164,9 @@ render(`
 href="https://drive.google.com/open?id=1U2mmwafScvf7NIucpkj6VeZcFGU-OXZ5&usp=drive_copy"
 target="_blank">
 
-📄 ดาวน์โหลดรายชื่อสถานพยาบาลของทางราชการ
+<i class="bi bi-file-earmark-arrow-down-fill"></i>
+
+ดาวน์โหลดรายชื่อสถานพยาบาลของทางราชการ
 
 </a>
 
@@ -129,12 +177,16 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-🏥 สถานพยาบาลเอกชน
+
+<i class="bi bi-hospital"></i>
+
+สถานพยาบาลเอกชน
+
 </div>
 
 <div class="answer">
 
-สามารถตรวจสอบรายชื่อสถานพยาบาลเอกชนที่ใช้สิทธิได้จากเอกสารด้านล่าง
+สามารถตรวจสอบรายชื่อสถานพยาบาลเอกชนที่ใช้สิทธิได้
 
 <br><br>
 
@@ -142,7 +194,9 @@ target="_blank">
 href="https://drive.google.com/open?id=1OlKJ67oDBLsiToRGxx7Nnw35qGVbaQUI&usp=drive_copy"
 target="_blank">
 
-📄 ดาวน์โหลดรายชื่อสถานพยาบาลเอกชน
+<i class="bi bi-file-earmark-arrow-down-fill"></i>
+
+ดาวน์โหลดรายชื่อสถานพยาบาลเอกชน
 
 </a>
 
@@ -153,7 +207,11 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-❓ ขอหนังสือส่งตัวที่ไหน
+
+<i class="bi bi-info-circle-fill"></i>
+
+ขอหนังสือส่งตัวที่ไหน
+
 </div>
 
 <div class="answer">
@@ -180,12 +238,18 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-❓ ผู้ป่วยใน ไม่ต้องสำรองจ่าย ต้องทำอย่างไร
+
+<i class="bi bi-question-circle-fill"></i>
+
+ผู้ป่วยใน ไม่ต้องสำรองจ่าย ต้องทำอย่างไร
+
 </div>
 
 <div class="answer">
 
 ขอหนังสือส่งตัวจากต้นสังกัด
+
+<br><br>
 
 แล้วนำไปยื่นที่โรงพยาบาล
 
@@ -196,14 +260,16 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-❓ หนังสือส่งตัวมีอายุกี่วัน
+
+<i class="bi bi-calendar-check-fill"></i>
+
+หนังสือส่งตัวมีอายุกี่วัน
+
 </div>
 
 <div class="answer">
 
-7 วัน
-
-นับจากวันที่ออกหนังสือส่งตัว
+7 วัน นับจากวันที่ออกหนังสือส่งตัว
 
 </div>
 
@@ -212,22 +278,22 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-❓ เข้าโรงพยาบาลเอกชนได้หรือไม่
+
+<i class="bi bi-hospital-fill"></i>
+
+เข้าโรงพยาบาลเอกชนได้หรือไม่
+
 </div>
 
 <div class="answer">
 
-ได้
-
-แต่ต้องเป็นผู้ป่วยใน
+ได้ แต่ต้องเป็นผู้ป่วยใน
 
 <br><br>
 
 เบิกได้ครึ่งหนึ่งของค่ารักษาจริง
 
-แต่ไม่เกิน
-
-<b>8,000 บาท</b>
+แต่ไม่เกิน <b>8,000 บาท</b>
 
 </div>
 
@@ -236,7 +302,11 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-❓ โรงพยาบาลรัฐที่ไม่ได้เป็นคู่สัญญาเข้าได้หรือไม่
+
+<i class="bi bi-arrow-left-circle-fill"></i>
+
+โรงพยาบาลรัฐที่ไม่ได้เป็นคู่สัญญาเข้าได้หรือไม่
+
 </div>
 
 <div class="answer">
@@ -246,7 +316,6 @@ target="_blank">
 <br><br>
 
 หากเป็นโรงพยาบาลคู่สัญญา
-
 ไม่ต้องสำรองจ่าย
 
 <br><br>
@@ -254,7 +323,6 @@ target="_blank">
 หากไม่ใช่โรงพยาบาลคู่สัญญา
 
 ให้สำรองจ่ายก่อน
-
 แล้วนำใบเสร็จมาเบิก
 
 </div>
@@ -264,13 +332,16 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-❓ ครอบฟันเบิกได้หรือไม่
+
+<i class="bi bi-heart-pulse-fill"></i>
+
+ครอบฟันเบิกได้หรือไม่
+
 </div>
 
 <div class="answer">
 
 สามารถเบิกได้
-
 หากเป็นการครอบฟันเพื่อการรักษาพยาบาล
 
 </div>
@@ -280,13 +351,16 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-❓ ตรวจสุขภาพเบิกได้หรือไม่
+
+<i class="bi bi-clipboard2-pulse-fill"></i>
+
+ตรวจสุขภาพเบิกได้หรือไม่
+
 </div>
 
 <div class="answer">
 
 สามารถเบิกได้
-
 เมื่อสำนักงานเป็นผู้จัดให้มีการตรวจสุขภาพ
 
 </div>
@@ -296,24 +370,34 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-❓ ข้อบังคับค่ารักษาพยาบาล ถึงไหนแล้ว
+
+<i class="bi bi-hourglass-split"></i>
+
+ข้อบังคับค่ารักษาพยาบาล ถึงไหนแล้ว
+
 </div>
 
 <div class="answer">
 
-ปัจจุบัน
-
-อยู่ระหว่างการพิจารณาของกระทรวงแรงงาน
+ปัจจุบันอยู่ระหว่างการพิจารณาของกระทรวงแรงงาน
 
 </div>
 
 </div>
 
 <button
-class="login-btn"
+class="login-btn welfare-btn"
 id="backToWelfare">
 
-🔙 กลับ
+<span>
+
+<i class="bi bi-arrow-left-circle-fill"></i>
+
+กลับหน้าสวัสดิการ
+
+</span>
+
+<i class="bi bi-chevron-right"></i>
 
 </button>
 
@@ -327,14 +411,15 @@ document
 
 }
 
-function showFamily() {
+function showFamily(){
 
 render(`
 
 <div class="login-box">
 
 <h2 style="color:#006633;">
-👨‍👩‍👧 สวัสดิการครอบครัว
+<i class="bi bi-people-fill"></i>
+สวัสดิการครอบครัว
 </h2>
 
 <p class="subtitle">
@@ -344,16 +429,26 @@ render(`
 <div class="faq-card">
 
 <div class="question">
-👶 ค่าช่วยเหลือบุตร
+
+<i class="bi bi-person-heart"></i>
+
+ค่าช่วยเหลือบุตร
+
 </div>
 
 <div class="answer">
+
+เอกสารและหลักเกณฑ์การขอรับค่าช่วยเหลือบุตร
+
+<br><br>
 
 <a
 href="https://drive.google.com/file/d/1zLEmT49FQdwlZGt1LO4O6hRC2C9-kvSG/view?usp=sharing"
 target="_blank">
 
-📄 ดาวน์โหลดเอกสาร
+<i class="bi bi-file-earmark-arrow-down-fill"></i>
+
+ดาวน์โหลดเอกสาร
 
 </a>
 
@@ -364,16 +459,26 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-🎓 ค่าช่วยเหลือการศึกษาของบุตร
+
+<i class="bi bi-mortarboard-fill"></i>
+
+ค่าช่วยเหลือการศึกษาของบุตร
+
 </div>
 
 <div class="answer">
+
+เอกสารและหลักเกณฑ์การขอรับค่าการศึกษาบุตร
+
+<br><br>
 
 <a
 href="https://drive.google.com/file/d/1CteVMzC340-EnPDrx5E3AQBrHZvsTbzc/view?usp=sharing"
 target="_blank">
 
-📄 ดาวน์โหลดเอกสาร
+<i class="bi bi-file-earmark-arrow-down-fill"></i>
+
+ดาวน์โหลดเอกสาร
 
 </a>
 
@@ -382,10 +487,18 @@ target="_blank">
 </div>
 
 <button
-class="login-btn"
+class="login-btn welfare-btn"
 id="backToWelfare">
 
-🔙 กลับ
+<span>
+
+<i class="bi bi-arrow-left-circle-fill"></i>
+
+กลับหน้าสวัสดิการ
+
+</span>
+
+<i class="bi bi-chevron-right"></i>
 
 </button>
 
@@ -406,7 +519,8 @@ render(`
 <div class="login-box">
 
 <h2 style="color:#006633;">
-🕊️ เงินช่วยเหลือกรณีเสียชีวิต
+<i class="bi bi-flower1"></i>
+เงินช่วยเหลือกรณีเสียชีวิต
 </h2>
 
 <p class="subtitle">
@@ -416,16 +530,26 @@ render(`
 <div class="faq-card">
 
 <div class="question">
-⚰️ ค่าทำศพ
+
+<i class="bi bi-file-earmark-text-fill"></i>
+
+ค่าทำศพ
+
 </div>
 
 <div class="answer">
+
+เอกสารและหลักเกณฑ์การขอรับค่าทำศพ
+
+<br><br>
 
 <a
 href="https://drive.google.com/file/d/1MbiSPzYFNbabYjRqr_s24UGyPwbdkZhx/view?usp=sharing"
 target="_blank">
 
-📄 ดาวน์โหลดเอกสาร
+<i class="bi bi-file-earmark-arrow-down-fill"></i>
+
+ดาวน์โหลดเอกสาร
 
 </a>
 
@@ -436,7 +560,11 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-🏵️ ผู้มีอำนาจอนุมัติค่าทำศพ
+
+<i class="bi bi-person-check-fill"></i>
+
+ผู้มีอำนาจอนุมัติค่าทำศพ
+
 </div>
 
 <div class="answer">
@@ -445,7 +573,9 @@ target="_blank">
 href="https://drive.google.com/file/d/1JCe1zaFG5emQa0S-gi5af3_8cbEFhWMx/view?usp=sharing"
 target="_blank">
 
-📄 ดาวน์โหลดเอกสาร
+<i class="bi bi-file-earmark-arrow-down-fill"></i>
+
+ดาวน์โหลดเอกสาร
 
 </a>
 
@@ -456,26 +586,45 @@ target="_blank">
 <div class="faq-card">
 
 <div class="question">
-🏵️ ฌาปนกิจ (ฌกยท.) ได้เงินเท่าไหร่?
+
+<i class="bi bi-cash-coin"></i>
+
+ฌาปนกิจ (ฌกยท.)
+
 </div>
 
 <div class="answer">
 
-สมาชิกจะได้รับเงินตามจำนวนที่เรียกเก็บจากสมาชิกทั้งหมด คนละ 10 บาท
+สมาชิกจะได้รับเงินตามจำนวนที่เรียกเก็บจากสมาชิกทั้งหมด
 
 <br><br>
 
-ปัจจุบันมีสมาชิกประมาณ 2,800 คน
+เรียกเก็บสมาชิกคนละ
 
-คิดเป็นเงินประมาณ 28,000 บาท
+<b>10 บาท</b>
+
+<br><br>
+
+ปัจจุบันมีสมาชิกประมาณ
+
+<b>2,800 คน</b>
+
+<br><br>
+
+คิดเป็นเงินประมาณ
+
+<b>28,000 บาท</b>
 
 <br><br>
 
 แบ่งการจ่ายเป็น
 
-<ul style="margin-top:10px;">
+<ul style="margin-top:10px">
+
 <li>งวดแรก 60%</li>
+
 <li>งวดสุดท้าย 40%</li>
+
 </ul>
 
 </div>
@@ -483,10 +632,18 @@ target="_blank">
 </div>
 
 <button
-class="login-btn"
+class="login-btn welfare-btn"
 id="backToWelfare">
 
-🔙 กลับ
+<span>
+
+<i class="bi bi-arrow-left-circle-fill"></i>
+
+กลับหน้าสวัสดิการ
+
+</span>
+
+<i class="bi bi-chevron-right"></i>
 
 </button>
 
@@ -500,93 +657,75 @@ document
 
 }
 
-function showFAQ(){
+function showFAQ() {
 
-render(`
+    let html = `
 
 <div class="login-box">
 
 <h2 style="color:#006633;">
-❓ คำถามทั่วไป
+<i class="bi bi-patch-question-fill"></i>
+คำถามทั่วไป
 </h2>
 
 <p class="subtitle">
-รวมคำถามทั่วไปเกี่ยวกับสวัสดิการ
+รวมคำถามที่พบบ่อยเกี่ยวกับสวัสดิการ
 </p>
 
-<div class="faq-card">
+`;
 
-<div class="question">
-🔴 เงินเสี่ยงภัย ได้เท่าไหร่
-</div>
+    welfareFAQ.forEach(item => {
 
-<div class="answer">
-
-จ่ายเงินสวัสดิการพิเศษให้แก่ผู้ปฏิบัติงาน
-ในพื้นที่เสี่ยงภัยจังหวัดชายแดนภาคใต้
-
-<br><br>
-
-<b>5,000 บาท / เดือน</b>
-
-</div>
-
-</div>
+        html += `
 
 <div class="faq-card">
 
-<div class="question">
-🔴 พื้นที่เสี่ยงภัย มีที่ไหนบ้าง
-</div>
+    <div class="question">
 
-<div class="answer">
+        <i class="bi bi-patch-question-fill"></i>
 
-จังหวัดยะลา
+        ${item.question}
 
-<br>
+    </div>
 
-จังหวัดปัตตานี
+    <div class="answer">
 
-<br>
+        ${item.answer}
 
-จังหวัดนราธิวาส
-
-<br>
-
-และจังหวัดสงขลา ได้แก่
-
-<ul style="margin-top:10px;">
-
-<li>อำเภอจะนะ</li>
-
-<li>อำเภอเทพา</li>
-
-<li>อำเภอนาทวี</li>
-
-<li>อำเภอสะบ้าย้อย</li>
-
-<li>อำเภอสะเดา</li>
-
-</ul>
+    </div>
 
 </div>
 
-</div>
+`;
+
+    });
+
+    html += `
 
 <button
-class="login-btn"
+class="login-btn welfare-btn"
 id="backToWelfare">
 
-🔙 กลับ
+<span>
+
+<i class="bi bi-arrow-left-circle-fill"></i>
+
+กลับหน้าสวัสดิการ
+
+</span>
+
+<i class="bi bi-chevron-right"></i>
 
 </button>
 
 </div>
 
-`);
+`;
 
-document
-.getElementById("backToWelfare")
-.addEventListener("click", showWelfare);
+    render(html);
+
+    document
+        .getElementById("backToWelfare")
+        .addEventListener("click", showWelfare);
 
 }

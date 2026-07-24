@@ -1,5 +1,5 @@
 import { db } from "../firebase/firebase-config.js";
-import { showDashboard } from "./dashboard.js";
+import { showLoading } from "./loading.js";
 import {
     doc,
     getDoc
@@ -15,7 +15,7 @@ export async function login() {
     message.innerHTML = "";
 
     if (!empid || !password) {
-        message.innerHTML = "กรุณากรอกรหัสพนักงานและรหัสผ่าน";
+        message.innerHTML = "กรุณากรอกเลขบัตรประชาชนและรหัสผ่าน";
         return;
     }
 
@@ -25,7 +25,7 @@ export async function login() {
         const snap = await getDoc(ref);
 
         if (!snap.exists()) {
-            message.innerHTML = "ไม่พบรหัสพนักงาน";
+            message.innerHTML = "ไม่พบเลขบัตรประชาชน";
             return;
         }
 
@@ -36,9 +36,12 @@ export async function login() {
             return;
         }
 
-window.currentUser = user;
+window.currentUser = {
+    ...user,
+    empid
+};
 
-showDashboard(user);
+showLoading(user);
 
     } catch (err) {
 

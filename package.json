@@ -1,0 +1,31 @@
+{
+  "name": "raot-hris",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "version": "node scripts/version.cjs",
+  "deploy": "npm run version && firebase deploy"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sit251/raot-hris.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sit251/raot-hris/issues"
+  },
+  "homepage": "https://github.com/sit251/raot-hris#readme",
+  "dependencies": {
+    "firebase": "^12.15.0",
+    "firebase-admin": "^14.1.0",
+    "xlsx": "^0.18.5"
+  }
+}
