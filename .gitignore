@@ -1,2 +1,14 @@
-node_modules
+node_modules/
 serviceAccountKey.json
+
+# Firebase
+.firebase/
+firebase-debug.log
+
+# Environment / secrets
+.env
+.env.*
+
+# Excel / personal data
+*.xlsx
+*.xls

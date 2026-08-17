@@ -39,7 +39,7 @@ export function showContact() {
 
 <span style="font-size:22px;font-weight:bold;color:#006633;">
 
-321
+ต่อ 321
 
 </span>
 
@@ -60,7 +60,7 @@ export function showContact() {
 
 <span style="font-size:22px;font-weight:bold;color:#006633;">
 
-322
+ต่อ 322
 
 </span>
 
@@ -79,7 +79,7 @@ export function showContact() {
 
     <div class="answer">
         <span style="font-size:22px;font-weight:bold;color:#006633;">
-            323
+            ต่อ 323
         </span>
         <br>
         หมายเลขต่อภายใน
@@ -96,7 +96,7 @@ export function showContact() {
 
 <span style="font-size:22px;font-weight:bold;color:#006633;">
 
-324
+ต่อ 324
 
 </span>
 

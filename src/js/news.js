@@ -1,5 +1,13 @@
 import { render } from "./script.js";
 import { showDashboard } from "./dashboard.js";
+import { db } from "../firebase/firebase-config.js";
+
+import {
+    collection,
+    getDocs,
+    query,
+    orderBy
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 export function showNews() {
 
@@ -21,31 +29,9 @@ export function showNews() {
 ข่าวประชาสัมพันธ์
 </div>
 
-<div class="faq-card">
+<div id="newsList">
 
-<img
-src="https://i.ibb.co/SXgdhJ3z/12.jpg"
-style="width:100%;border-radius:12px;display:block;">
-
-</div>
-
-<hr>
-
-<div class="faq-card">
-
-<img
-src="https://i.ibb.co/yFDNGf8j/10-1.jpg"
-style="width:100%;border-radius:12px;display:block;">
-
-</div>
-
-<hr>
-
-<div class="faq-card">
-
-<img
-src="https://i.ibb.co/j7PFKpC/1782208422567.jpg"
-style="width:100%;border-radius:12px;display:block;">
+    กำลังโหลดข่าว...
 
 </div>
 
@@ -71,8 +57,94 @@ id="backDashboard">
 
 `);
 
+loadNews();
+
     document
         .getElementById("backDashboard")
         .addEventListener("click", () => showDashboard(window.currentUser));
+
+}
+
+async function loadNews() {
+
+    const newsList = document.getElementById("newsList");
+
+    newsList.innerHTML = "";
+
+    try {
+
+        const q = query(
+            collection(db, "news"),
+            orderBy("createdAt", "desc")
+        );
+
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+
+    newsList.innerHTML = `
+        <p style="text-align:center;color:#888;">
+            ยังไม่มีข่าว
+        </p>
+    `;
+
+    return;
+
+}
+
+snapshot.forEach(doc => {
+
+    const news = doc.data();
+
+    newsList.innerHTML += `
+
+<a
+    href="${news.pdfUrl}"
+    target="_blank"
+    class="menu-card news-item">
+
+    <div class="menu-icon">
+
+        <i class="bi bi-file-earmark-text-fill"></i>
+
+    </div>
+
+    <div class="menu-content">
+
+        <div class="menu-title">
+
+            ${news.title}
+
+        </div>
+
+        <div class="menu-desc">
+
+            <i class="bi bi-calendar3"></i>
+
+            ${news.date}
+
+        </div>
+
+    </div>
+
+    <i class="bi bi-chevron-right menu-arrow"></i>
+
+</a>
+
+`;
+
+});
+
+    } catch (err) {
+
+        console.error(err);
+
+        newsList.innerHTML = `
+            <p style="text-align:center;color:red;">
+                โหลดข่าวไม่สำเร็จ
+            </p>
+        `;
+
+    }
 
 }

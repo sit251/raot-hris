@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAOT HRIS</title>
+
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+
+<body>
+กำลังเปิดระบบ...
+
+<script>
+async function main() {
+    try {
+        await liff.init({
+            liffId: "2010857564-K7TGTwHF"
+        });
+
+        // ถ้าเปิดจาก LINE
+        if (liff.isInClient()) {
+
+            await liff.openWindow({
+                url: "https://roat-hris.web.app",
+                external: true
+            });
+
+            liff.closeWindow();
+            return;
+        }
+
+        // ถ้าเปิดจาก Browser ปกติ
+        window.location.replace("https://roat-hris.web.app");
+
+    } catch (e) {
+        console.error(e);
+        window.location.replace("https://roat-hris.web.app");
+    }
+}
+
+main();
+</script>
+
+</body>
+</html>

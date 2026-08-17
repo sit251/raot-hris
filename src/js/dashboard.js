@@ -49,23 +49,23 @@ export function showDashboard(user) {
     class="profile-menu-item"
     id="passwordBtn">
 
-        <i class="bi bi-key-fill"></i>
+    <i class="bi bi-key-fill"></i>
 
-        <span>เปลี่ยนรหัสผ่าน</span>
+    <span>เปลี่ยนรหัสผ่าน</span>
 
-    </button>
+</button>
 
-    <div class="profile-menu-divider"></div>
+<div class="profile-menu-divider"></div>
 
-    <button
+<button
     class="profile-menu-item danger"
     id="logoutBtn">
 
-        <i class="bi bi-box-arrow-right"></i>
+    <i class="bi bi-box-arrow-right"></i>
 
-        <span>ออกจากระบบ</span>
+    <span>ออกจากระบบ</span>
 
-    </button>
+</button>
 
 </div>
 
@@ -132,7 +132,7 @@ export function showDashboard(user) {
     <div class="menu-content">
 
         <div class="menu-title">
-            สวัสดิการกองทุน
+            กองทุนสำรองเลี้ยงชีพ
         </div>
 
         <div class="menu-desc">
@@ -154,7 +154,7 @@ export function showDashboard(user) {
     <div class="menu-content">
 
         <div class="menu-title">
-            สวัสดิการค่าตอบแทน
+            ค่าตอบแทน
         </div>
 
         <div class="menu-desc">
